@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProImage Studio</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel controls">
+        <h1>ProImage Studio</h1>
+        <p class="subtitle">Advanced professional image generator (Pollinations.ai)</p>
+
+        <label>Prompt</label>
+        <textarea id="prompt" rows="4" placeholder="Describe the image you want..."></textarea>
+
+        <label>Negative Prompt</label>
+        <textarea id="negativePrompt" rows="2" placeholder="What to avoid (blurry, watermark, extra limbs)..."></textarea>
+
+        <div class="grid">
+          <div>
+            <label>Model</label>
+            <select id="model">
+              <option value="flux">flux</option>
+              <option value="turbo">turbo</option>
+              <option value="gptimage">gptimage</option>
+              <option value="kontext">kontext</option>
+              <option value="seedream">seedream</option>
+              <option value="nanobanana">nanobanana</option>
+              <option value="nanobanana-pro">nanobanana-pro</option>
+            </select>
+          </div>
+          <div>
+            <label>Size</label>
+            <select id="size">
+              <option>1024x1024</option>
+              <option>1536x1024</option>
+              <option>1024x1536</option>
+            </select>
+          </div>
+          <div>
+            <label>Output</label>
+            <select id="outputFormat">
+              <option value="png">PNG</option>
+              <option value="jpg">JPG</option>
+            </select>
+          </div>
+          <div>
+            <label>Seed (optional)</label>
+            <input id="seed" placeholder="12345" />
+          </div>
+        </div>
+
+        <button id="generateBtn">Generate Image</button>
+        <p id="status"></p>
+      </section>
+
+      <section class="panel preview">
+        <div class="preview-header">
+          <h2>Result</h2>
+          <a id="download" class="hidden" download="generated-image.png">Download</a>
+        </div>
+        <img id="result" alt="Generated output" class="hidden" />
+        <div id="emptyState">Your generated image will appear here.</div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
